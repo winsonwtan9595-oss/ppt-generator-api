@@ -17,9 +17,22 @@ app.post('/generate-ppt', (req, res) => {
   });
 });
 
+// ✅ 新增这个：generate-video
+app.post('/generate-video', (req, res) => {
+  res.json({
+    success: true,
+    message: 'generate-video endpoint is working (stub)',
+    received: {
+      bodyKeys: Object.keys(req.body || {})
+    }
+  });
+});
+
 app.get('/', (req, res) => {
   res.send('PPT Generator API running');
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
